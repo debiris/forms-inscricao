@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Formulário de inscrição</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-image">
+        <img src="assets/img/logo-inova.svg">
+    </div>
+        <div class="form">
+            <form action="#" onsubmit="return validarFormulario()">
+                <div class="form-header">
+                    <div class="title">
+                        <h1>Inscreva-se</h1>
+                    </div>
+                </div>
+                    
+                <div class="'input-group">
+                    <div class="input-box">
+                        <label for="fullname">Nome completo</label>
+                        <input id="fullname" type="text" name="fullname" placeholder="Digite seu nome completo" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="birthdate">Data de nascimento</label>
+                        <input id="birthdate" type="text" name="birthdate" placeholder="dd/mm/aaaa" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="cpf">CPF</label>
+                        <input id="cpf" type="text" name="cpf" placeholder="000.000.000-0" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="phonenumber">Celular</label>
+                        <input id="phonenumber" type="tel" name="phonenumber" placeholder="(xx) xxxxx-xxxx" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="fullnamemom">Nome da mãe</label>
+                        <input id="fullnamemom" type="text" name="fullnamemom" placeholder="Digite nome da mãe" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="email">E-mail</label>
+                        <input id="email" type="email" name="email" placeholder="exemplo@email.com" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="cep">CEP</label>
+                        <input id="cep" type="text" name="cep" placeholder="00000-000" required>
+                    </div>
+                </div>
+
+                <div class="gender-inputs">
+                    <div class="gender-title">
+                        <h4>Gênero</h4>
+                    </div>
+
+                    <div class="gender-group">
+                        <div class="gender-input">
+                            <input type="radio" id="female" name="gender" required>
+                            <label for="female">Feminino</label>
+                        </div>
+
+                        <div class="gender-input">
+                            <input type="radio" id="male" name="gender">
+                            <label for="male">Masculino</label>
+                        </div>
+
+                        <div class="gender-input">
+                            <input type="radio" id="none" name="gender">
+                            <label for="none">Prefiro não dizer</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trail-inputs">
+                    <div class="trail-title">
+                        <h4>Trilha escolhida</h4>
+                    </div>
+
+                    <div class="trail-group">
+                        <div class="trail-input">
+                            <input type="radio" id="frontend" name="trail" required>
+                            <label for="female">Front-end</label>
+                        </div>
+
+                        <div class="trail-input">
+                            <input type="radio" id="backend" name="trail">
+                            <label for="male">Back-end</label>
+                        </div>
+
+                        <div class="trail-input">
+                            <input type="radio" id="datescience" name="trail">
+                            <label for="none">Ciência de Dados</label>
+                        </div>
+
+                        <div class="trail-input">
+                            <input type="radio" id="ux" name="trail">
+                            <label for="none">Design e Experiência</label>
+                        </div>
+
+                        <div class="trail-input">
+                            <input type="radio" id="games" name="trail">
+                            <label for="none">Criação de Jogos</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="acess-inputs">
+                    <div class="acess-title">
+                        <h4>Você possui acesso a computador/notebook, tablet ou celular com acesso à internet?</h4>
+                    </div>
+
+                    <div class="acess-group">
+                        <div class="acess-input">
+                            <input type="radio" id="yes" name="acess" required>
+                            <label for="yes">Sim</label>
+                        </div>
+
+                        <div class="acess-input">
+                            <input type="radio" id="not" name="acess">
+                            <label for="not">Não</label>
+                        </div>
+                    </div>
+                </div>
+
+                 <h4>ANEXOS</h4>
+          <form action="/enviar" method="post" enctype="multipart/form-data">
+                 <label for="anexar_identidade">Identidade (PNG, JPG/JPEG ou PDF):</label>
+                     <input type="file" id="anexar_identidade" name="anexar_identidade" accept=".png, .jpg, .jpeg, .pdf" required>
+                         <br>
+                <label for="anexar_conclusao_medio">Comprovante de matrícula ou Conclusão do Ensino Médio (PNG, JPG/JPEG ou PDF):</label>
+                     <input type="file" id="anexar_conclusao_medio" name="anexar_conclusao_medio" accept=".png, .jpg, .jpeg, .pdf" required>
+                         <br>
+                <label for="anexar_residencia">Comprovante de Residência (PNG, JPG/JPEG ou PDF):</label>
+                        <input type="file" id="anexar_residencia" name="anexar_residencia" accept=".png, .jpg, .jpeg, .pdf" required>
+                            <br>
+
+                            <h5>OBS: Verifique os dados preenchidos antes de clicar em enviar.</h5>
+                <div class="button-container">
+                    <div class="submit-button">
+                        <button type="submit">Enviar</button>
+                    </div>
+                    <div class="reset-button">
+                        <button type="reset">Limpar</button>
+                    </div>
+                </div>
+            </form>
+
+            <script>
+                function validarFormulario() {
+                    
+                    let campos = document.querySelectorAll('input[required]');
+                    let todosPreenchidos = true;
+                    for (let i = 0; i < campos.length; i++) {
+                        if (!campos[i].value) {
+                            alert("Por favor, preencha todos os campos obrigatórios.");
+                            todosPreenchidos = false; 
+                            break; 
+                        }
+                    }
+
+                    
+                    if (todosPreenchidos) {
+                        alert("Parabéns, agore aguarde no seu e-mail o envio do comprovante de inscrição!");
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>
